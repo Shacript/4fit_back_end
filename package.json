@@ -1,0 +1,7 @@
+{
+  "name": "4fit_back_end",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
