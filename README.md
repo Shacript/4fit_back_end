@@ -12,6 +12,10 @@ npm install
 ```
 
 ```sh
+create .env file follow .env.example and setting it
+```
+
+```sh
 npm start
 ```
 
