@@ -12,6 +12,8 @@ exports.update_me = async (req, res, next) => {
   if (req.body.weight) req.user.weight = req.body.weight;
   if (req.body.height) req.user.height = req.body.height;
 
+  if (req.body.password) req.user.password = req.body.password;
+
   await req.user.save();
   req.user.password = undefined;
   res.send(req.user);
