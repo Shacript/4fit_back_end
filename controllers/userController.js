@@ -5,12 +5,4 @@ exports.get_me = (req, res, next) => {
   res.send(req.user);
 };
 
-exports.get_user_tasks = () => {};
-
-exports.get_user_task = () => {};
-
-exports.get_user_tasks_by_date = () => {};
-
-exports.get_user_records = () => {};
-
-exports.get_user_record = () => {};
+exports.update_me = (req, res, next) => {};
