@@ -24,7 +24,7 @@ exports.auth_login = async (req, res, next) => {
 
 exports.auth_register = (req, res, next) => {
   const user = new User(req.body);
-  user.save((err, docs) => {
+  user.save((err, doc) => {
     if (err) return res.status(400).send(err);
     res.status(201).send();
   });

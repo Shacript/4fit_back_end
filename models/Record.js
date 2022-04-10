@@ -1,25 +1,36 @@
 const mongoose = require("mongoose");
 
+const activitiesSchema = mongoose.Schema({
+  name: String,
+  duration: Number,
+});
+
 const recordSchema = mongoose.Schema({
   user_id: {
     type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
     required: true,
   },
   name: {
     type: String,
     required: true,
   },
+  record_type: {
+    type: String,
+    required: true,
+  },
   type: {
     type: String,
+    required: true,
   },
   description: {
     type: String,
   },
-  time_spend: {
-    type: Number,
-  },
   activities: {
-    type: Array,
+    type: [activitiesSchema],
   },
 });
 

@@ -31,6 +31,9 @@ app.get("/", (req, res, next) => {
 const authRouter = require("./routes/authRouter");
 app.use(authRouter);
 
+const meUserRouter = require("./routes/meUserRouter");
+app.use("/user/me", meUserRouter);
+
 app.listen(PORT, () => {
   console.log("listening on http://localhost:" + PORT);
 });
