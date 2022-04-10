@@ -11,6 +11,10 @@
 npm install
 ```
 
+```sh
+npm start
+```
+
 ## Author
 
 👤 **Aphisit Likitwattanapaisarn**
