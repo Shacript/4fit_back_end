@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo");
 require("dotenv").config();
 
 mongoose.connect(process.env.MONGO_DB_URI, {
@@ -19,6 +20,9 @@ app.use(cookieParser());
 app.use(
   session({
     secret: process.env.SESSION_KEY,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_DB_URI,
+    }),
     resave: false,
     saveUninitialized: false,
   })
