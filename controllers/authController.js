@@ -3,7 +3,7 @@ const User = require("../models/User");
 exports.auth_login = async (req, res, next) => {
   try {
     const user = await User.findOne({
-      $or: [{ username: req.body.username }, { email: req.body.email }],
+      $or: [{ username: req.body.username }, { email: req.body.username }],
     });
 
     user.comparePassword(req.body.password, (err, match) => {
