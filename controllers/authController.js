@@ -14,11 +14,13 @@ exports.auth_login = async (req, res, next) => {
       } else {
         user.password = undefined;
         req.session.user_id = user._id;
-        res.send();
+        res.send(user);
       }
     });
   } catch (err) {
-    res.status(400).send(err);
+    res
+      .status(404)
+      .send({ message: "username,email or password are incorrect" });
   }
 };
 

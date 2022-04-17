@@ -29,15 +29,16 @@ app.use(cookieParser());
 app.use(
   session({
     secret: process.env.SESSION_KEY,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGO_DB_URI,
-    }),
+    // store: MongoStore.create({
+    //   mongoUrl: process.env.MONGO_DB_URI,
+    // }),
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      sameSite: "none",
-      secure: true,
-    },
+    // cookie: {
+    //   sameSite: "none",
+    //   httpOnly: true,
+    //   secure: true,
+    // },
   })
 );
 
