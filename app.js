@@ -17,10 +17,12 @@ mongoose.connect(process.env.MONGO_DB_URI, {
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: ["http://localhost:3000"],
   })
 );
+
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 app.use(cookieParser());
