@@ -15,7 +15,11 @@ mongoose.connect(process.env.MONGO_DB_URI, {
   useUnifiedTopology: true,
 });
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: "true",
+  })
+);
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 app.use(cookieParser());
