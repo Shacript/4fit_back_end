@@ -42,7 +42,7 @@ app.use(
 );
 
 app.get("/", (req, res, next) => {
-  res.send({ response: "working fine !" });
+  res.send({ response: "I'm Dead." });
 });
 
 const authRouter = require("./routes/authRouter");
