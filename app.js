@@ -17,7 +17,8 @@ mongoose.connect(process.env.MONGO_DB_URI, {
 
 app.use(
   cors({
-    credentials: "true",
+    origin: "http://localhost:3000",
+    credentials: true,
   })
 );
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
