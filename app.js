@@ -34,8 +34,10 @@ app.use(
     }),
     resave: false,
     saveUninitialized: false,
-    sameSite: "none",
-    httpOnly: true,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+    },
   })
 );
 
