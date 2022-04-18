@@ -48,10 +48,10 @@ app.use(async (req, res, next) => {
   return next();
 });
 
-const authRouter = require("./routes/authRouter");
+const authRouter = require("../routes/authRouter");
 app.use("/api", authRouter);
 
-const meUserRouter = require("./routes/meUserRouter");
+const meUserRouter = require("../routes/meUserRouter");
 app.use("/api/user/me", meUserRouter);
 
 module.exports = app;
