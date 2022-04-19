@@ -1,15 +1,48 @@
 const Task = require("../models/Task");
 
+const mongoose = require("mongoose");
+
 exports.get_me_tasks = async (req, res, next) => {
   let tasks;
   if (!req.query.date) {
-    tasks = await Task.find({ user_id: req.user._id });
+    tasks = await Task.aggregate([
+      {
+        $match: {
+          user_id: String(req.user._id),
+        },
+      },
+
+      {
+        $project: {
+          _id: 1,
+          type: 1,
+          name: 1,
+          calculateAllSeconds: {
+            $sum: "$activities.duration",
+          },
+        },
+      },
+    ]);
   } else {
-    req.query.date.toString();
-    tasks = await Task.find({
-      user_id: req.user._id,
-      schedule: req.query.date,
-    });
+    tasks = await Task.aggregate([
+      {
+        $match: {
+          user_id: String(req.user._id),
+          schedule: req.query.date,
+        },
+      },
+
+      {
+        $project: {
+          _id: 1,
+          type: 1,
+          name: 1,
+          calculateAllSeconds: {
+            $sum: "$activities.duration",
+          },
+        },
+      },
+    ]);
   }
   res.send(tasks);
 };
