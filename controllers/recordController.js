@@ -13,6 +13,30 @@ exports.get_me_record = (req, res, next) => {
   res.send(req.record);
 };
 
+exports.get_chart = async (req, res, next) => {
+  const records = await Record.aggregate([
+    {
+      $match: {
+        user_id: String(req.user._id),
+        record_type: req.query.type,
+      },
+    },
+    {
+      $project: {
+        date: 1,
+        activities_seconds: { $sum: "$activities.duration" },
+      },
+    },
+    {
+      $group: {
+        _id: "$date",
+        seconds: { $sum: "$activities_seconds" },
+      },
+    },
+  ]);
+  res.send(records);
+};
+
 exports.create_record = (req, res, next) => {
   const record = new Record({
     user_id: req.user._id,

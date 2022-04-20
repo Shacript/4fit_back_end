@@ -11,7 +11,6 @@ exports.get_me_tasks = async (req, res, next) => {
           user_id: String(req.user._id),
         },
       },
-
       {
         $project: {
           _id: 1,

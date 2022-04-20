@@ -14,6 +14,7 @@ recordRouter.param("record_id", async (req, res, next, id) => {
 });
 
 recordRouter.get("/", recordController.get_me_records);
+recordRouter.get("/chart", recordController.get_chart);
 recordRouter.get("/:record_id", recordController.get_me_record);
 
 recordRouter.post("/", recordController.create_record);

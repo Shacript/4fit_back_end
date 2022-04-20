@@ -11,8 +11,11 @@ const recordSchema = mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
+  },
+  timestamp: {
+    type: Date,
   },
   name: {
     type: String,
@@ -26,11 +29,15 @@ const recordSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  note: {
+    type: String,
+  },
   description: {
     type: String,
   },
   activities: {
     type: [activitiesSchema],
+    required: true,
   },
 });
 
