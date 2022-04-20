@@ -22,6 +22,7 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 app.use(cookieParser());
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: process.env.SESSION_KEY,
@@ -31,7 +32,9 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      sameSite: "strict",
+      secure: true,
+      httpOnly: true,
+      sameSite: "none",
     },
   })
 );
