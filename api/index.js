@@ -13,7 +13,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://4fit-exercise.netlify.app"],
+    origin: "https://4fit-exercise.netlify.app",
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
   })
