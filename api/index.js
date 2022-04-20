@@ -13,7 +13,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://4fit-exercise.netlify.app"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -30,11 +30,11 @@ app.use(
     }),
     resave: false,
     saveUninitialized: false,
-    // cookie: {
-    //   sameSite: "none",
-    //   httpOnly: true,
-    //   secure: true,
-    // },
+    cookie: {
+      sameSite: "none",
+      httpOnly: true,
+      secure: true,
+    },
   })
 );
 
